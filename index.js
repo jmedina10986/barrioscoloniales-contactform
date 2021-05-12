@@ -16,7 +16,7 @@ exports.handler = async (event) => {
   // send mail with defined transport object
   let info = await transporter.sendMail({
     from: event.email, // sender address
-    to: process.env.USER, // list of receivers
+    to: `${process.env.USER}, ${process.env.CLIENT_EMAIL}`, // list of receivers
     subject: event.subject, // Subject line
     text: event.message, // plain text body
     html: `<b>${event.message}</b>`, // html body
